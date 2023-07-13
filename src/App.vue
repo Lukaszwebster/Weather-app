@@ -4,9 +4,9 @@ import 'aos/dist/aos.css'
 
 AOS.init()
 useHead({
-  title: 'Landing page',
+  title: 'Weather app',
   meta: [
-    { name: 'description', content: 'Landing Page' },
+    { name: 'description', content: 'Weather app' },
     {
       name: 'theme-color',
       content: () => isDark.value ? '#00aba9' : '#ffffff',

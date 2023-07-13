@@ -4,16 +4,17 @@ export const useUserStore = defineStore('user', () => {
   const location = ref()
 
   function getLocation() {
-    navigator.geolocation.getCurrentPosition((position) => {
-      console.log(position)
-      location.value = position
-    },
-    (error) => {
-      console.log(error)
-    },
-    )
+    return new Promise ((resolve, reject) => {
+      navigator.geolocation.getCurrentPosition((position) => {
+        resolve(position)
+        location.value = position
+      },
+      (error) => {
+        reject(error)
+      },
+      )
+    })
   }
-
   return {
     location,
     getLocation,
