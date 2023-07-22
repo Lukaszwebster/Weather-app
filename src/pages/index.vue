@@ -7,6 +7,6 @@ weatherStore.loadWeather()
 
 <template>
   <div>
-    <h1>{{ userStore.location?.coords }}</h1>
+    <h1>{{ weatherStore.weather }}</h1>
   </div>
 </template>

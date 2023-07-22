@@ -3,11 +3,11 @@ import { acceptHMRUpdate, defineStore } from 'pinia'
 export const useUserStore = defineStore('user', () => {
   const location = ref()
 
-  function getLocation() {
+  async function getLocation() {
     return new Promise ((resolve, reject) => {
       navigator.geolocation.getCurrentPosition((position) => {
-        resolve(position)
         location.value = position
+        resolve(position)
       },
       (error) => {
         reject(error)
