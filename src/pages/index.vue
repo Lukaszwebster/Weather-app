@@ -6,9 +6,11 @@
 const apiKey = '4cda0b1231a98ddce2d7662e79d6877b'
 const apiUrl = 'https://api.openweathermap.org/data/2.5/weather?units=metric&q=London'
 
+const data = ref()
+
 async function checkWeather() {
   const response = await fetch(`${apiUrl}&appid=${apiKey}`)
-  const data = await response.json()
+  data.value = await response.json()
   console.log(data)
 }
 
@@ -31,11 +33,9 @@ checkWeather()
       <div class="w-full flex flex-col items-center text-white">
         <img class="max-w-150px" src="public/rain.png" alt="">
         <h1 class="text-50px">
-          22c
+          {{ data }}
         </h1>
-        <h2 class="text-20px">
-          Puławy
-        </h2>
+        <h2 class="text-20px" />
       </div>
       <div class="mx-20px mt-10 flex items-center justify-between text-white">
         <div class="flex flex-col items-center gap-2">
