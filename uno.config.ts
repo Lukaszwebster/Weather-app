@@ -17,6 +17,7 @@ export default defineConfig({
   theme: {
     colors: {
       myBlue: '#fafafa',
+      greenGradient: 'linear-gradient(135deg, #00feba, #5b548a)',
     },
   },
   presets: [
