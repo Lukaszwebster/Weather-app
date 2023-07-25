@@ -33,7 +33,12 @@ function sendCityName() {
     </div>
     <div v-if="data">
       <div class="w-full flex flex-col items-center text-white">
-        <img class="max-w-150px" src="public/rain.png" alt="">
+        <img v-if="data.weather[0].main === 'Rain'" class="max-w-150px" src="public/rain.png" alt="">
+        <img v-if="data.weather[0].main === 'Clouds'" class="max-w-150px" src="public/clouds.png" alt="">
+        <img v-if="data.weather[0].main === 'Clear'" class="max-w-150px" src="public/clear.png" alt="">
+        <img v-if="data.weather[0].main === 'Drizzle'" class="max-w-150px" src="public/drizzle.png" alt="">
+        <img v-if="data.weather[0].main === 'Mist'" class="max-w-150px" src="public/mist.png" alt="">
+        <img v-if="data.weather[0].main === 'Snow'" class="max-w-150px" src="public/snow.png" alt="">
 
         <h1 class="text-50px">
           {{ data.name }}
