@@ -7,7 +7,6 @@ const data = ref()
 async function checkWeather() {
   const response = await fetch(`${apiUrl} + ${inputValue.value} + &appid=${apiKey}`)
   data.value = await response.json()
-  console.log(data)
 }
 function sendCityName() {
   checkWeather()
@@ -20,6 +19,10 @@ function sendCityName() {
       <input v-model="inputValue" class="h-60px w-full rounded-30px border-none bg-#ebfffc px-25px py-10px outline-none" type="text" placeholder="enter city name" spellcheck="false">
       <button class="rounded-full bg-#ebfffc p-4" @click="sendCityName">
         <div class="i-mdi:magnify text-20px" />
+        <span class="sr-only">Search</span>
+      </button>
+      <button v-if="data" class="rounded-full bg-#ebfffc p-4" @click="data = 0">
+        <div class="i-ic:baseline-clear" />
       </button>
     </div>
     <div v-if="data">
